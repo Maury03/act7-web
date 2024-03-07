@@ -23,11 +23,14 @@ class CreateCursosTable extends Migration
             ->on('kits')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('groupKey');
+            $table->unsignedBigInteger('groupKey')->nullable();
             $table->foreign('groupKey')
             ->references('id')
             ->on('grupos')
             ->onDelete('cascade');
+
+            $table->string('created_at');
+            $table->string('updated_at');
         });
     }
 

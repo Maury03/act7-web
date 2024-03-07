@@ -16,9 +16,11 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('userName');
+            $table->string('contrasena');
+            $table->string('correo');
             $table->string('userType');
 
-            $table->unsignedBigInteger('groupKey');
+            $table->unsignedBigInteger('groupKey')->nullable();
             $table->foreign('groupKey')
             ->references('id')
             ->on('grupos')
